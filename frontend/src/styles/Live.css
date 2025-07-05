@@ -1,0 +1,127 @@
+.live-page {
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  box-sizing: border-box;
+  width: 100vw;
+}
+
+.live-page.rtl {
+  direction: rtl;
+  text-align: right;
+  
+}
+
+.song-title {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.song-artist {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.song-lines {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.song-line {
+  margin-bottom: 2rem;
+}
+
+.line-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.word-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 50px;
+  text-align: center;
+}
+
+.chord-word {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #90ee90;
+  min-height: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.lyric-word {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.chord-word,
+.lyric-word {
+  min-width: 60px;
+  text-align: center;
+  display: inline-block;
+}
+
+.live-page.rtl .chords-line,
+.live-page.rtl .lyrics-line {
+  direction: rtl;
+  text-align: right;
+  justify-content: right;
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #ff9800;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.quit-button {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  background-color: #f44336;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.chord-word {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #90ee90;
+  min-width: 50px;
+  text-align: center;
+}
+
+.lyric-word {
+  font-size: 1.5rem;
+  font-weight: bold;
+  min-width: 50px;
+  text-align: center;
+}
