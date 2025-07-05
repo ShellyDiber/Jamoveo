@@ -1,12 +1,16 @@
 .live-page {
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  padding-top: 2rem;
   font-family: 'Arial', sans-serif;
   background-color: #000;
   color: #fff;
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
-  position: relative;
   box-sizing: border-box;
   width: 100vw;
 }
@@ -17,17 +21,6 @@
   
 }
 
-.song-title {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  color: #fff;
-}
-
-.song-artist {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
 
 .song-lines {
   font-size: 1.5rem;
@@ -64,7 +57,7 @@
 }
 
 .lyric-word {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: white;
 }
@@ -113,17 +106,53 @@
   z-index: 1000;
 }
 
-.chord-word {
-  font-size: 1rem;
+
+.song-title {
+  font-size: 2rem;
   font-weight: bold;
-  color: #90ee90;
-  min-width: 50px;
+  margin: 0.5rem 0 0.2rem 0;
   text-align: center;
+  
 }
 
-.lyric-word {
-  font-size: 1.5rem;
-  font-weight: bold;
-  min-width: 50px;
+.song-artist {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
+  color: #ccc;
+}
+
+
+@media (max-width: 650px) {
+  .live-page {
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+  }
+
+  .song-title {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+  }
+
+  .song-artist {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .line-group {
+    gap: 0.5rem;
+  }
+
+  .chord-word,
+  .lyric-word {
+    font-size: 1rem;
+    min-width: 40px;
+  }
+
+  .floating-button,
+  .quit-button {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    bottom: 1.2rem;
+  }
 }

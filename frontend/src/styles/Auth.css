@@ -71,3 +71,24 @@ body, html {
 .auth-form a:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 400px) {
+  .auth-container {
+    padding: 1rem;
+    box-shadow: none;
+    border-radius: 0;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .auth-form input,
+  .auth-form select,
+  .auth-form button {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
+
+  .auth-form a {
+    font-size: 0.8rem;
+  }
+}

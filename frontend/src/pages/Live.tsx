@@ -30,6 +30,7 @@ useEffect(() => {
       const parsedContent = JSON.parse(data.content);
       setCurrentSong({ ...data, content: parsedContent });
       console.log('Received new song via socket:', data.title);
+      setIsScrolling(false); 
     } catch (e) {
       console.error('Failed to parse song content:', e);
     }
@@ -75,8 +76,8 @@ useEffect(() => {
   <div className={`live-page ${song?.rtl ? 'rtl' : ''}`}>
     {song ? (
       <>
-        <h1 className="song-title">{song.title}</h1>
-        <h2 className="song-artist">{song.artist}</h2>
+        <div className="song-title">{song.title}</div>
+        <div className="song-artist">{song.artist}</div>
 
         <div className="song-lines">
           {song.content.map((lineGroup, idx) => (
