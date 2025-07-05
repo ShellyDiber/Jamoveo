@@ -20,11 +20,13 @@
 .song-title {
   font-size: 3rem;
   margin-bottom: 0.5rem;
+  color: #fff;
 }
 
 .song-artist {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .song-lines {

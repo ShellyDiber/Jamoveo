@@ -1,13 +1,26 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  width: 100%;
+}
+
 
 .auth-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   max-width: 400px;
-  margin: 5rem auto;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   background-color: #ffffff;
-  font-family: sans-serif;
 }
+
 
 .auth-container h2 {
   text-align: center;
@@ -15,11 +28,13 @@
   color: #333;
 }
 
+
 .auth-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+
 
 .auth-form input,
 .auth-form select,
@@ -28,7 +43,10 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 
 .auth-form button {
   background-color: #af604c;
@@ -39,7 +57,7 @@
 }
 
 .auth-form button:hover {
-  background-color: #af604c;
+  background-color: #944e3d;
 }
 
 .auth-form a {

@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import io from 'socket.io-client';
 import { useSong } from '../context/songContext';
 import { backendServerURL } from '../config';
+import '../styles/Results.css';
 
 type Song = {
   id: string;
@@ -73,18 +74,23 @@ const handleSongSelect = (song: Song) => {
 
 
 
+return (
+  <div className="results-page">
+    <h1>Search Results</h1>
 
-  return (
-    <div style={styles.page}>
-      <h1>Search Results</h1>
-      <div style={styles.list}>
+    {songs.length === 0 ? (
+      <div className="no-results">No songs found for "{query}"</div>
+    ) : (
+      <div className="song-list">
         {songs.map((song) => (
           <div
             key={song.id}
-            style={styles.card}
+            className="song-card"
             onClick={() => handleSongSelect(song)}
           >
-            {song.image && <img src={song.image} alt={song.title} style={styles.image} />}
+            {song.image && (
+              <img src={song.image} alt={song.title} className="song-image" />
+            )}
             <div>
               <h3>{song.title}</h3>
               <p>{song.artist}</p>
@@ -92,40 +98,10 @@ const handleSongSelect = (song: Song) => {
           </div>
         ))}
       </div>
-    </div>
-  );
-};
-
-const styles: { [key: string]: React.CSSProperties } = {
-  page: {
-    padding: '2rem',
-    fontFamily: 'sans-serif',
-  },
-  list: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1rem',
-    maxWidth: '600px',
-    margin: '0 auto',
-  },
-  card: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '1rem',
-    padding: '1rem',
-    border: '1px solid #ccc',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    transition: 'background-color 0.2s ease',
-  },
-  image: {
-    width: '60px',
-    height: '60px',
-    borderRadius: '8px',
-    objectFit: 'cover',
-  },
-};
-
+    )}
+  </div>
+);
+}
 export default Results;
 
 
