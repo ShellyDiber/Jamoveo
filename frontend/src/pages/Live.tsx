@@ -1,10 +1,9 @@
 // src/pages/Live.tsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Live.css';
-import { io, Socket } from 'socket.io-client';
 import { useSong } from '../context/songContext';
-import { backendServerURL } from '../config';
+import { getWebSocket } from '../utils';
+import '../styles/Live.css';
 
 
 
@@ -24,7 +23,7 @@ const LivePage: React.FC = () => {
 
 
 useEffect(() => {
-  const socket: Socket = io(backendServerURL);
+  const socket = getWebSocket();
 
   socket.on('new-song', (data) => {
     try {
@@ -67,7 +66,7 @@ useEffect(() => {
 
   // Admin quit button handler
   const handleQuit = () => {
-    const socket: Socket = io(backendServerURL);
+    const socket = getWebSocket();
     socket.emit('quit-song');
     setTimeout(() => navigate('/main'), 200); // let it broadcast before leaving
   };

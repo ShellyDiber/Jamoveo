@@ -5,6 +5,7 @@ import io from 'socket.io-client';
 import { useSong } from '../context/songContext';
 import { backendServerURL } from '../config';
 import '../styles/Results.css';
+import { getWebSocket } from '../utils';
 
 type Song = {
   id: string;
@@ -50,17 +51,8 @@ useEffect(() => {
   }
 }, [query]);
 
-   const socket = io(backendServerURL );
+   const socket = getWebSocket();;
 
-
-
-// const handleSongSelect = (song: Song)=> {
-//   console.log(`Selected song: ${song.title} by ${song.artist}`);
-//   socket.emit('play-song', song); // sends the selected song to the server
-//   //localStorage.setItem('currentSong', JSON.stringify(song)); // save the current song to localStorage
-//   setCurrentSong(song);
-//   navigate('/live');
-// };
 
 const handleSongSelect = (song: Song) => {
   console.log(`Selected song: ${song.title} by ${song.artist}`);

@@ -9,8 +9,9 @@ import { Server } from 'socket.io';
 import { Song } from 'src/songs/song.entity';
 
 @WebSocketGateway({
+  namespace: '/api/ws',
   cors: {
-    origin: '*', // לאבטחה, כדאי לשים רק את הדומיין שלך בפרודקשן
+    origin: '*', // Allow all origins for development; adjust for production
   },
 })
 export class SongsGateway {

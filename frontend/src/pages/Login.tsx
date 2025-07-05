@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Auth.css';
 import { useSong } from '../context/songContext';
 import { backendServerURL } from '../config';
+import '../styles/Auth.css';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
