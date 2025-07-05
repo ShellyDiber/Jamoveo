@@ -3,7 +3,7 @@ import { Controller, Get, Post, Body, Query, Param } from '@nestjs/common';
 import { SongsService } from './songs.service';
 import { Song } from './song.entity';
 
-@Controller('songs')
+@Controller('/api/songs')
 export class SongsController {
   constructor(private readonly songsService: SongsService) {}
 

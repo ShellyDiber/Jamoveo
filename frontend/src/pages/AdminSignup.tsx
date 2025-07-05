@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { backendServerURL } from '../config';
 
 const AdminSignup: React.FC = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const AdminSignup: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch('http://localhost:3000/users', {
+    const res = await fetch(`${backendServerURL}/api/users`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),

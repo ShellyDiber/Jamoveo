@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Main.css';
 import { io, Socket } from 'socket.io-client';
 import { useSong } from '../context/songContext';
+import { backendServerURL } from '../config';
 
 
 const MainPage: React.FC = () => {
@@ -16,7 +17,7 @@ const MainPage: React.FC = () => {
   useEffect(() => {
     let socket: Socket | undefined;
     if (role !== 'admin') {
-      socket = io('http://localhost:3000');
+      socket = io(backendServerURL);
 
       socket.on('new-song', (data) => {
         console.log('New song received by socket:', data.title);

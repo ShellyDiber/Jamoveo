@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Auth.css';
 import { useSong } from '../context/songContext';
+import { backendServerURL } from '../config';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Login: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch('http://localhost:3000/api/auth/login', {
+    const res = await fetch(`${backendServerURL}/api/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),

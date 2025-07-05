@@ -4,21 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Live.css';
 import { io, Socket } from 'socket.io-client';
 import { useSong } from '../context/songContext';
-
-
-
-// // Types
-// interface SongLine {
-//   lyrics: string;
-//   chords?: string;
-//}
-
-// interface SongContent {
-//   title: string;
-//   artist: string;
-//   content: SongLine[][];  // Array of arrays for each line
-//   rtl: boolean;
-// }
+import { backendServerURL } from '../config';
 
 
 
@@ -26,7 +12,7 @@ const LivePage: React.FC = () => {
   const navigate = useNavigate();
 //   const [song, setSong] = useState<SongContent | null>(null);
   const [isScrolling, setIsScrolling] = useState(false);
-  const [scrollInterval, setScrollInterval] = useState<NodeJS.Timeout | null>(null);
+  const [scrollInterval, setScrollInterval] = useState<any | null>(null);
   const { currentSong: song, setCurrentSong, user } = useSong();
   
   //const user = JSON.parse(localStorage.getItem('user') || '{}');
@@ -34,26 +20,11 @@ const LivePage: React.FC = () => {
   const role = user?.role;
   const isSinger = user?.instrument === 'vocals';
 
-  
-//     useEffect(() => {
-//   const fetchSong = async () => {
-//     const res = await fetch('http://localhost:3000/songs/play/2');
-//     if (res.ok) {
-//       const data = await res.json();
-//         // Parse the content field to convert it from string to JSON
-//       const parsedContent = JSON.parse(data.content);
-
-//       setSong({ ...data, content: parsedContent });
-//     }
-//   };
-
-//   fetchSong();
-// }, []);
 
 
 
 useEffect(() => {
-  const socket: Socket = io('http://localhost:3000');
+  const socket: Socket = io(backendServerURL);
 
   socket.on('new-song', (data) => {
     try {
@@ -80,41 +51,6 @@ useEffect(() => {
 
 
 
-
-
-// useEffect(() => {
-//     const saved = localStorage.getItem('currentSong');
-//   if (saved) {
-//     try {
-//       const parsed = JSON.parse(saved);
-//       parsed.content = JSON.parse(parsed.content); // Parse nested content
-//       setSong(parsed);
-//     } catch (err) {
-//       console.error('Failed to load saved song from localStorage', err);
-//     }
-//   }
-
-
-//   const socket: Socket = io('http://localhost:3000'); 
-
-//   socket.on('new-song', (data) => {
-//     try {
-//       const parsedContent = JSON.parse(data.content);
-//       setSong({ ...data, content: parsedContent });
-//       localStorage.setItem('currentSong', JSON.stringify(data));
-//       console.log('Received new song:', data.title, 'by', data.artist);
-//     } catch (e) {
-//       console.error('Failed to parse song content:', e);
-//     }
-//   });
-
-//   return () => {
-//     socket.disconnect(); // disconnect the socket when the component unmounts
-//   };
-// }, []);
-
-
-
   // Toggle scroll behavior
   const toggleScroll = () => {
     if (isScrolling) {
@@ -131,7 +67,7 @@ useEffect(() => {
 
   // Admin quit button handler
   const handleQuit = () => {
-    const socket: Socket = io('http://localhost:3000');
+    const socket: Socket = io(backendServerURL);
     socket.emit('quit-song');
     setTimeout(() => navigate('/main'), 200); // let it broadcast before leaving
   };

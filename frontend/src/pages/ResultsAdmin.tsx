@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import io from 'socket.io-client';
 import { useSong } from '../context/songContext';
+import { backendServerURL } from '../config';
 
 type Song = {
   id: string;
@@ -29,7 +30,7 @@ useEffect(() => {
  
   const fetchSongs = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/songs?q=${encodeURIComponent(query)}`);
+      const res = await fetch(`${backendServerURL}/api/songs?q=${encodeURIComponent(query)}`);
       const data = await res.json();
       if (Array.isArray(data)) {
         setSongs(data);
@@ -48,7 +49,7 @@ useEffect(() => {
   }
 }, [query]);
 
-   const socket = io('http://localhost:3000');
+   const socket = io(backendServerURL );
 
 
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Auth.css';
+import { backendServerURL } from '../config';
 
 const instruments = ['drums', 'guitars', 'bass', 'saxophone', 'keyboards', 'vocals'];
 
@@ -15,7 +16,7 @@ const Signup: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch('http://localhost:3000/api/users', {
+    const res = await fetch(`${backendServerURL}/api/users`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),
