@@ -41,7 +41,6 @@ cd frontend
 yarn
 yarn start
 
-
 #Run the Backend
 cd ../backend
 yarn
