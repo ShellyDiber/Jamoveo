@@ -37,7 +37,7 @@ yarn start
 
 ```
 
-#Postgresql database
+# Postgresql database
 - **Database name**: `jamoveo`
 - **Username**: `jamoveo`
 - **Password**: `jamoveo`
