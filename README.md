@@ -12,7 +12,7 @@ Git repository link: https://github.com/ShellyDiber/Jamoveo.git
 ## URL:
 https://jamoveo.diber.net/
 
-- To sign up as a **regular** user, go to the website and click the Sign Up link.
+- To sign up as a **regular user**, go to the website and click the Sign Up link.
 
 - To signup as **admin user** , go to https://jamoveo.diber.net/adminSignup . 
 
