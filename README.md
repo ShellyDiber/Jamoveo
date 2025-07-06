@@ -51,7 +51,7 @@ When working locally, use:
   Add a new song .
 
 - `GET /songs/play/:id`  
-  Notify all connected clients about the new song and playing the song.
+  Notify all connected clients about the new song and start playing the song.
 
 - `GET /songs/current`  
   Get the currently playing song.
