@@ -46,16 +46,23 @@ const MainPage: React.FC = () => {
         {role === 'admin' ? (
           <>
             <h2 className="admin-title">Search any song...</h2>
+            <form
+              onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+                e.preventDefault(); // מונע רענון דף
+                handleSearch();
+              }}
+            >
             <input
               type="text"
               placeholder="Enter song name or artist"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
               className="admin-input"
             />
-            <button onClick={handleSearch} className="admin-button">
+            <button type="submit" className="admin-button">
               Search
             </button>
+            </form>
           </>
         ) : (
           <h2 className="waiting-text">Waiting for next song...</h2>

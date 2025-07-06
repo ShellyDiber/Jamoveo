@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Auth.css';
 import { backendServerURL } from '../config';
+import '../styles/Auth.css';
 
 const instruments = ['drums', 'guitars', 'bass', 'saxophone', 'keyboards', 'vocals'];
 
@@ -31,6 +31,7 @@ const Signup: React.FC = () => {
 
   return (
     <div className="auth-container">
+      <h1>Jamoveo</h1>
       <h2>Sign Up</h2>
       <form className="auth-form" onSubmit={handleSubmit}>
         <input type="text" name="username" placeholder="Username" value={form.username} onChange={handleChange} required />

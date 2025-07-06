@@ -45,7 +45,9 @@ const Login: React.FC = () => {
   };
 
   return (
+    <div className="auth-page">
     <div className="auth-container">
+      <h1>Jamoveo</h1>
       <h2>Login</h2>
       <form className="auth-form" onSubmit={handleSubmit}>
         <input type="text" name="username" placeholder="Username" value={form.username} onChange={handleChange} required />
@@ -54,6 +56,7 @@ const Login: React.FC = () => {
         <a href="/signup">Don't have an account? Sign up</a>
       </form>
     </div>
+  </div>
   );
 };
 
