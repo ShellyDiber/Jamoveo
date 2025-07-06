@@ -1,5 +1,7 @@
 # Jamoveo 
 
+Git repository link: https://github.com/ShellyDiber/Jamoveo.git
+
 ## Tech Stack
 
 - **Frontend**: React + TypeScript  
