@@ -57,15 +57,15 @@ const MainPage: React.FC = () => {
               placeholder="Enter song name or artist"
               value={query}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
-              className="admin-input"
+              className="admin-input admin-element"
             />
-            <button type="submit" className="admin-button">
+            <button type="submit" className="admin-button admin-element">
               Search
             </button>
             </form>
           </>
         ) : (
-          <h2 className="waiting-text">Waiting for next song...</h2>
+          <h2 className="waiting-text">Waiting for the next song...</h2>
         )}
       </div>
     </div>

@@ -1,8 +1,10 @@
 .main-container {
   display: flex;
   height: 100vh;
+  width: 95vw;
   justify-content: center;
   align-items: center;
+  margin: 0.5rem;
 }
 
 .main-box {
@@ -20,10 +22,13 @@
   font-size: 1.5rem;
   color: #ccc;
 }
+.admin-element{
+  width: 80%;
+  padding: 1rem;
+  margin: 0.7rem;
 
+}
 .admin-input {
-  width: 100%;
-  padding: 0.8rem;
   font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -31,8 +36,6 @@
 }
 
 .admin-button {
-  width: 100%;
-  padding: 0.8rem;
   background-color: #4CAF50;
   color: white;
   font-size: 1rem;

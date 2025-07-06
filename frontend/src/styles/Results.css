@@ -3,7 +3,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f9f9f9;
   min-height: 100vh;
-  width: 100vw;
+  
 }
 
 h1 {
@@ -55,4 +55,19 @@ h1 {
   font-size: 1.2rem;
   margin-top: 2rem;
   color: #888;
+}
+.back-button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #af604c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #944e3d;
 }

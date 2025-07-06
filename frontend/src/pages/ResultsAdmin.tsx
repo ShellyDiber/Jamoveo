@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useSong } from '../context/songContext';
 import { backendServerURL } from '../config';
-import '../styles/Results.css';
 import { getWebSocket } from '../utils';
+import '../styles/Results.css';
 
 type Song = {
   id: string;
   title: string;
   artist: string;
-  image?: string;
+  imageUrl?: string;
   content: string;
   rtl: boolean;
 };
@@ -63,14 +63,19 @@ const handleSongSelect = (song: Song) => {
   navigate('/live');
 };
 
-
+console.log('songs', songs);
 
 return (
   <div className="results-page">
     <h1>Search Results</h1>
 
     {songs.length === 0 ? (
-      <div className="no-results">No songs found for "{query}"</div>
+      <div className="no-results">No songs found for "{query}"
+      <button className="back-button" onClick={() => navigate('/main')}>
+            <i className="fas fa-arrow-left"></i>
+          Back to Search
+          </button>
+          </div>
     ) : (
       <div className="song-list">
         {songs.map((song) => (
@@ -79,8 +84,8 @@ return (
             className="song-card"
             onClick={() => handleSongSelect(song)}
           >
-            {song.image && (
-              <img src={song.image} alt={song.title} className="song-image" />
+            {song.imageUrl && (
+              <img src={song.imageUrl} alt={song.title} className="song-image" />
             )}
             <div>
               <h3>{song.title}</h3>

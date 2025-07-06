@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { backendServerURL } from '../config';
+import '../styles/Auth.css';
 
 const AdminSignup: React.FC = () => {
   const navigate = useNavigate();
@@ -27,7 +28,9 @@ const AdminSignup: React.FC = () => {
   };
 
   return (
+    <div className="auth-page">
     <div className="auth-container">
+      <h1>Jamoveo</h1>
       <h2>Admin Sign Up</h2>
       <form className="auth-form" onSubmit={handleSubmit}>
         <input type="text" name="username" placeholder="Username" value={form.username} onChange={handleChange} required />
@@ -35,6 +38,7 @@ const AdminSignup: React.FC = () => {
         <button type="submit">Register</button>
         <a href="/login">Already have an account? Login</a>
       </form>
+    </div>
     </div>
   );
 };
