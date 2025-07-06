@@ -37,11 +37,17 @@ git clone https://github.com/ShellyDiber/Jamoveo.git
 cd Jamoveo 
 
 # Run the Frontend
-cd Jamoveo/frontend
+cd frontend
+yarn
 yarn start
 
+The frontend will run locally at: http://localhost:5173
+
 #Run the Backend
-cd Jamoveo/backend
+cd ../backend
+yarn
 yarn start
+
+The backend will run locally at: http://localhost:3000
 
 
