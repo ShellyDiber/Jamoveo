@@ -10,21 +10,9 @@
 ## URL:
 https://jamoveo.diber.net/
 
-## create a user:
-Signup:
-https://jamoveo.diber.net/signup
+## To sign up as a regular user, go to the website and click the Sign Up link.
 
-Login:
-https://jamoveo.diber.net/login
-
-## create an admin user:
-
-Signup:
-https://jamoveo.diber.net/adminSignup
-
-Login:
-https://jamoveo.diber.net/login
-
+## To signup as admin user , go to https://jamoveo.diber.net/adminSignup . 
 
 
 
