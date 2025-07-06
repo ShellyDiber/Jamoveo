@@ -17,6 +17,30 @@ Git repository link: https://github.com/ShellyDiber/Jamoveo.git
 - To signup as **admin user** , go to https://jamoveo.diber.net/adminSignup . 
 
 
+
+
+## How to Run the Project Locally:
+
+### Clone the repository
+
+```bash
+git clone https://github.com/ShellyDiber/Jamoveo.git
+cd Jamoveo 
+
+# Run the Frontend
+cd frontend
+yarn
+yarn start
+
+#Run the Backend
+cd ../backend
+yarn
+yarn start
+
+The frontend will run locally at: http://localhost:5173
+The backend will run locally at: http://localhost:3000
+```
+
 ## API Endpoints Overview
 
 All endpoints are available under the base URL:  
@@ -58,26 +82,6 @@ When working locally, use:
 
 
 
-## How to Run the Project Locally:
-
-### Clone the repository
-
-```bash
-git clone https://github.com/ShellyDiber/Jamoveo.git
-cd Jamoveo 
-
-# Run the Frontend
-cd frontend
-yarn
-yarn start
-
-#Run the Backend
-cd ../backend
-yarn
-yarn start
-
-The frontend will run locally at: http://localhost:5173
-The backend will run locally at: http://localhost:3000
 
 
 
