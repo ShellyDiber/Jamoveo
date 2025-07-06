@@ -7,7 +7,7 @@ const instruments = ['drums', 'guitars', 'bass', 'saxophone', 'keyboards', 'voca
 
 const Signup: React.FC = () => {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ username: '', password: '', instrument: '' , role: 'player'});
+  const [form, setForm] = useState({ username: '', password: '', instrument: '', role: 'player' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -24,6 +24,8 @@ const Signup: React.FC = () => {
 
     if (res.ok) {
       navigate('/login');
+    } else if (res.status === 409) {
+      alert('Username already exists. Please choose another one.');
     } else {
       alert('Signup failed');
     }
@@ -31,22 +33,22 @@ const Signup: React.FC = () => {
 
   return (
     <div className="auth-page">
-    <div className="auth-container">
-      <h1>Jamoveo</h1>
-      <h2>Sign Up</h2>
-      <form className="auth-form" onSubmit={handleSubmit}>
-        <input type="text" name="username" placeholder="Username" value={form.username} onChange={handleChange} required />
-        <input type="password" name="password" placeholder="Password" value={form.password} onChange={handleChange} required />
-        <select name="instrument" value={form.instrument} onChange={handleChange} required>
-          <option value="">Select Instrument</option>
-          {instruments.map((i) => (
-            <option key={i} value={i}>{i.charAt(0).toUpperCase() + i.slice(1)}</option>
-          ))}
-        </select>
-        <button type="submit">Register</button>
-        <a href="/login">Already have an account? Login</a>
-      </form>
-    </div>
+      <div className="auth-container">
+        <h1>Jamoveo</h1>
+        <h2>Sign Up</h2>
+        <form className="auth-form" onSubmit={handleSubmit}>
+          <input type="text" name="username" placeholder="Username" value={form.username} onChange={handleChange} required />
+          <input type="password" name="password" placeholder="Password" value={form.password} onChange={handleChange} required />
+          <select name="instrument" value={form.instrument} onChange={handleChange} required>
+            <option value="">Select Instrument</option>
+            {instruments.map((i) => (
+              <option key={i} value={i}>{i.charAt(0).toUpperCase() + i.slice(1)}</option>
+            ))}
+          </select>
+          <button type="submit">Register</button>
+          <a href="/login">Already have an account? Login</a>
+        </form>
+      </div>
     </div>
   );
 };

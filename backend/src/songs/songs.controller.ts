@@ -5,17 +5,17 @@ import { Song } from './song.entity';
 
 @Controller('/api/songs')
 export class SongsController {
-  constructor(private readonly songsService: SongsService) {}
+  constructor(private readonly songsService: SongsService) { }
 
   @Get('play/:id')
   async playSong(@Param('id') id: number): Promise<Song | null> {
     return this.songsService.playSong(id);
   }
-  
-  
+
+
   @Get()
   async getAll(@Query('q') query?: string): Promise<Song[]> {
-    console.log('Query:', query); 
+    console.log('Query:', query);
     if (query) {
       return this.songsService.findByQuery(query);
     }
@@ -24,8 +24,8 @@ export class SongsController {
 
   @Get('current')
   getCurrentSong(): Song | null {
-   return this.songsService.getCurrentSong();
-    }
+    return this.songsService.getCurrentSong();
+  }
 
   @Get(':id')
   async getOne(@Param('id') id: number): Promise<Song | null> {
@@ -37,7 +37,7 @@ export class SongsController {
     return this.songsService.create(songData);
   }
 
-  
 
-  
+
+
 }

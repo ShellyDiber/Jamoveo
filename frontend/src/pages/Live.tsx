@@ -9,44 +9,44 @@ import '../styles/Live.css';
 
 const LivePage: React.FC = () => {
   const navigate = useNavigate();
-//   const [song, setSong] = useState<SongContent | null>(null);
+  //   const [song, setSong] = useState<SongContent | null>(null);
   const [isScrolling, setIsScrolling] = useState(false);
   const [scrollInterval, setScrollInterval] = useState<any | null>(null);
   const { currentSong: song, setCurrentSong, user } = useSong();
-  
+
   //const user = JSON.parse(localStorage.getItem('user') || '{}');
-  
+
   const role = user?.role;
   const isSinger = user?.instrument === 'vocals';
 
 
 
 
-useEffect(() => {
-  const socket = getWebSocket();
+  useEffect(() => {
+    const socket = getWebSocket();
 
-  socket.on('new-song', (data) => {
-    try {
-      const parsedContent = JSON.parse(data.content);
-      setCurrentSong({ ...data, content: parsedContent });
-      console.log('Received new song via socket:', data.title);
-      setIsScrolling(false); 
-    } catch (e) {
-      console.error('Failed to parse song content:', e);
-    }
-  });
+    socket.on('new-song', (data) => {
+      try {
+        const parsedContent = JSON.parse(data.content);
+        setCurrentSong({ ...data, content: parsedContent });
+        console.log('Received new song via socket:', data.title);
+        setIsScrolling(false);
+      } catch (e) {
+        console.error('Failed to parse song content:', e);
+      }
+    });
 
-  socket.on('song-ended', () => {
-    console.log('Song ended, going back to main...');
-    setCurrentSong(null);
-    navigate('/main');
-  });
+    socket.on('song-ended', () => {
+      console.log('Song ended, going back to main...');
+      setCurrentSong(null);
+      navigate('/main');
+    });
 
 
-  return () => {
-    socket.disconnect();
-  };
-}, [navigate,setCurrentSong]);
+    return () => {
+      socket.disconnect();
+    };
+  }, [navigate, setCurrentSong]);
 
 
 
@@ -73,43 +73,43 @@ useEffect(() => {
   };
 
   return (
-  <div className={`live-page ${song?.rtl ? 'rtl' : ''}`}>
-    {song ? (
-      <>
-        <div className="song-title">{song.title}</div>
-        <div className="song-artist">{song.artist}</div>
+    <div className={`live-page ${song?.rtl ? 'rtl' : ''}`}>
+      {song ? (
+        <>
+          <div className="song-title">{song.title}</div>
+          <div className="song-artist">{song.artist}</div>
 
-        <div className="song-lines">
-          {song.content.map((lineGroup, idx) => (
-            <div key={idx} className="song-line">
-              {/* chords line */}
-              <div className="line-group">
-                {lineGroup.map((word, i) => (
+          <div className="song-lines">
+            {song.content.map((lineGroup, idx) => (
+              <div key={idx} className="song-line">
+                {/* chords line */}
+                <div className="line-group">
+                  {lineGroup.map((word, i) => (
                     <div key={i} className="word-block">
-                    {!isSinger && <div className="chord-word">{word.chords || '\u00A0'}</div>}
-                    <div className="lyric-word">{word.lyrics}</div>
+                      {!isSinger && <div className="chord-word">{word.chords || '\u00A0'}</div>}
+                      <div className="lyric-word">{word.lyrics}</div>
                     </div>
-                ))}
+                  ))}
                 </div>
 
-            </div>
-          ))}
-        </div>
+              </div>
+            ))}
+          </div>
 
-      <button className="floating-button" onClick={toggleScroll}>
-        {isScrolling ? 'Stop Scroll' : 'Start Scroll'}
-      </button>
-      {role === 'admin' && (
-        <button className="quit-button" onClick={handleQuit}>
-          Quit
-        </button>
+          <button className="floating-button" onClick={toggleScroll}>
+            {isScrolling ? 'Stop Scroll' : 'Start Scroll'}
+          </button>
+          {role === 'admin' && (
+            <button className="quit-button" onClick={handleQuit}>
+              Quit
+            </button>
+          )}
+        </>
+      ) : (
+        <div className="waiting-text"> live </div>
       )}
-    </>
-  ) : (
-    <div className="waiting-text"> live </div>
-  )}
-</div>
-    );
-    }   
+    </div>
+  );
+}
 
 export default LivePage;

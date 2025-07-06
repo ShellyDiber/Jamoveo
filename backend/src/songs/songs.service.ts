@@ -10,7 +10,7 @@ export class SongsService {
     @InjectRepository(Song)
     private readonly songRepo: Repository<Song>,
     private readonly songsGateway: SongsGateway,
-  ) {}
+  ) { }
 
   async findAll(): Promise<Song[]> {
     return this.songRepo.find();
@@ -35,34 +35,22 @@ export class SongsService {
     return this.songRepo.findOneBy({ id });
   }
 
-
-//   async playSong(id: number): Promise<Song | null> {
-//     const song = await this.findOne(id);
-//     if (!song) {
-//       throw new NotFoundException(`Song with ID ${id} not found`);
-//     }
-//     // to notify clients that song had been selected
-//     //log (`Playing song with ID ${id}: ${song.title} by ${song.artist}`);
-//     log(`Playing song with ID ${id}: ${song.title} by ${song.artist}`);
-//     return song;
-//   }
-
   private currentSong: Song | null = null;
 
   async playSong(id: number): Promise<Song | null> {
     const song = await this.findOne(id);
     if (!song) {
-        throw new NotFoundException(`Song with ID ${id} not found`);
+      throw new NotFoundException(`Song with ID ${id} not found`);
     }
     this.currentSong = song; // save the current song
     console.log(`Playing song with ID ${id}: ${song.title} by ${song.artist}`);
-     this.songsGateway.broadcastSong(song); // Notify all connected clients about the new song
+    this.songsGateway.broadcastSong(song); // Notify all connected clients about the new song
     return song;
-    }
+  }
 
-    getCurrentSong(): Song | null {
+  getCurrentSong(): Song | null {
     return this.currentSong;
-    }
+  }
 
 
 }

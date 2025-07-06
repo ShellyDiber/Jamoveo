@@ -21,7 +21,7 @@ const MainPage: React.FC = () => {
       socket.on('new-song', (data) => {
         console.log('New song received by socket:', data.title);
         // localStorage.setItem('currentSong', JSON.stringify(data));
-        const parsed = { ...data};
+        const parsed = { ...data };
         setCurrentSong(parsed);
         navigate('/live');
       });
@@ -32,7 +32,7 @@ const MainPage: React.FC = () => {
         socket.disconnect();
       }
     };
-  }, [role, navigate,  setCurrentSong]);
+  }, [role, navigate, setCurrentSong]);
 
   const handleSearch = () => {
     if (query.trim() !== '') {
@@ -52,16 +52,16 @@ const MainPage: React.FC = () => {
                 handleSearch();
               }}
             >
-            <input
-              type="text"
-              placeholder="Enter song name or artist"
-              value={query}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
-              className="admin-input admin-element"
-            />
-            <button type="submit" className="admin-button admin-element">
-              Search
-            </button>
+              <input
+                type="text"
+                placeholder="Enter song name or artist"
+                value={query}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
+                className="admin-input admin-element"
+              />
+              <button type="submit" className="admin-button admin-element">
+                Search
+              </button>
             </form>
           </>
         ) : (
