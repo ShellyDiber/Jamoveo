@@ -11,18 +11,18 @@
 https://jamoveo.diber.net/
 
 ## create a user:
-### Signup:
+Signup:
 https://jamoveo.diber.net/signup
 
-### Login:
+Login:
 https://jamoveo.diber.net/login
 
 ## create an admin user:
 
-### Signup:
+Signup:
 https://jamoveo.diber.net/adminSignup
 
-### Login:
+Login:
 https://jamoveo.diber.net/login
 
 
