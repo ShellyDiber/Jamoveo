@@ -35,6 +35,8 @@ cd ../backend
 yarn
 yarn start
 
+```
+
 #Postgresql database
 - **Database name**: `jamoveo`
 - **Username**: `jamoveo`
@@ -43,7 +45,7 @@ yarn start
 
 The frontend will run locally at: http://localhost:5173
 The backend will run locally at: http://localhost:3000
-```
+
 
 ## API Endpoints Overview
 
