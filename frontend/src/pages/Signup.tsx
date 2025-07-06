@@ -30,6 +30,7 @@ const Signup: React.FC = () => {
   };
 
   return (
+    <div className="auth-page">
     <div className="auth-container">
       <h1>Jamoveo</h1>
       <h2>Sign Up</h2>
@@ -45,6 +46,7 @@ const Signup: React.FC = () => {
         <button type="submit">Register</button>
         <a href="/login">Already have an account? Login</a>
       </form>
+    </div>
     </div>
   );
 };

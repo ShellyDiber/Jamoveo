@@ -1,10 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Main.css';
 import { Socket } from 'socket.io-client';
 import { useSong } from '../context/songContext';
 import { getWebSocket } from '../utils';
+import '../styles/Main.css';
 
 const MainPage: React.FC = () => {
   const navigate = useNavigate();

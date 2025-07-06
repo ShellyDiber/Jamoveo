@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import io from 'socket.io-client';
 import { useSong } from '../context/songContext';
 import { backendServerURL } from '../config';
 import '../styles/Results.css';
