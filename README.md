@@ -2,13 +2,6 @@
 
 Git repository link: https://github.com/ShellyDiber/Jamoveo.git
 
-## Tech Stack
-
-- **Frontend**: React + TypeScript  
-- **Backend**: NestJS + TypeScript  
-- **Database**: PostgreSQL  
-- **Deployment**: AWS EC2 with Nginx reverse proxy
-
 ## URL:
 **URL:** https://jamoveo.diber.net/
 
@@ -16,7 +9,12 @@ Git repository link: https://github.com/ShellyDiber/Jamoveo.git
 
 - To signup as **admin user** , go to https://jamoveo.diber.net/adminSignup . 
 
+## Tech Stack
 
+- **Frontend**: React + TypeScript  
+- **Backend**: NestJS + TypeScript  
+- **Database**: PostgreSQL  
+- **Deployment**: AWS EC2 instance, with Nginx web server.
 
 
 ## How to Run the Project Locally:
