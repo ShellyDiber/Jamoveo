@@ -41,13 +41,13 @@ cd frontend
 yarn
 yarn start
 
-The frontend will run locally at: http://localhost:5173
 
 #Run the Backend
 cd ../backend
 yarn
 yarn start
 
+The frontend will run locally at: http://localhost:5173
 The backend will run locally at: http://localhost:3000
 
 
