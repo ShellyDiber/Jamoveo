@@ -36,7 +36,7 @@
 }
 
 .admin-button {
-  background-color: #4CAF50;
+  background-color: #af604c;
   color: white;
   font-size: 1rem;
   border: none;
@@ -45,7 +45,7 @@
   transition: 0.3s;
 }
 .admin-button:hover {
-  background-color: #45a049;
+  background-color: #af604c;
 }
 
 .waiting-container {
