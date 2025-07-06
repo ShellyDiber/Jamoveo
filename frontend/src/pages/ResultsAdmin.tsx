@@ -71,10 +71,7 @@ return (
 
     {songs.length === 0 ? (
       <div className="no-results">No songs found for "{query}"
-      <button className="back-button" onClick={() => navigate('/main')}>
-            <i className="fas fa-arrow-left"></i>
-          Back to Search
-          </button>
+      
           </div>
     ) : (
       <div className="song-list">
@@ -95,6 +92,10 @@ return (
         ))}
       </div>
     )}
+    <button className="back-button" onClick={() => navigate('/main')}>
+            <i className="fas fa-arrow-left"></i>
+          Back to Search
+          </button>
   </div>
 );
 }
