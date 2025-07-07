@@ -8,7 +8,6 @@ import '../styles/Main.css';
 
 const MainPage: React.FC = () => {
   const navigate = useNavigate();
-  //const user = JSON.parse(localStorage.getItem('user') || '{}');
   const { user, setCurrentSong } = useSong();
   const role = user?.role;
   const [query, setQuery] = useState('');
@@ -20,7 +19,6 @@ const MainPage: React.FC = () => {
 
       socket.on('new-song', (data) => {
         console.log('New song received by socket:', data.title);
-        // localStorage.setItem('currentSong', JSON.stringify(data));
         const parsed = { ...data };
         setCurrentSong(parsed);
         navigate('/live');
